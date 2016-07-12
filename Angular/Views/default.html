@@ -1,0 +1,45 @@
+<div class="container">
+<div class="row ">
+    <div class="column full">
+        <div id="carousel" class="owl-carousel owl-theme">
+            <img src="img/avengers.png" alt="1">
+            <img src="img/Batman_Begins.jpg" alt="2">
+            <img src="img/friends.png" alt="3">
+            <img src="img/game-of-thrones.jpg" alt="4">
+            <img src="img/guardians-of-the-galaxy.jpg" alt="5">
+            <img src="img/spectre.jpg" alt="6">
+            <img src="img/THE-MARTIAN.jpg" alt="7">
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#carousel").owlCarousel({
+            autoplayHoverPause : true,
+            autoplayTimeout : 3500,
+            autoplay : true,
+            items : 1,
+            loop : true,
+            margin : 20
+        })
+    })
+</script>
+<div ng-controller="ctrl">
+    <md-content class="md-padding box" layout="row" layout-wrap>
+        <md-card   ng-repeat="data in dataItem |filter:SearchCritera" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" >
+            <img class="height-flx" src="{{data.Poster}}" alt=""/>
+            <md-card-content >
+                <h3>{{data.Title}}</h3>
+                <h5>Plot: {{data.Plot}}</h5>
+                <p>Imdb Ratings : {{data.imdbRating}}</p>
+                <md-button class="md-warn md-raised md-hue-2" href="#/detail/{{data.id}}">Details</md-button>
+
+            </md-card-content>
+
+        </md-card>
+    </md-content>
+
+</div>
+
+
